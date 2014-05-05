@@ -9,7 +9,7 @@
 /// 
 
 #ifndef __TL_COMPILER_H__
-#define __TL_COMPILER_H_
+#define __TL_COMPILER_H__
 
 #include "tlang/compiler/common.h"
 
@@ -76,6 +76,6 @@ namespace tlang {
         };
 
 } // namespace tlang 
-#endif  // __TL_COMPILER_H_
+#endif  // __TL_COMPILER_H__
 
 
