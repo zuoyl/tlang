@@ -27,7 +27,8 @@ void CompileOption::dumpAllOptions(ostream &ios)
     int optionsMax = sizeof(optionItems) / sizeof(optionItems[0]);
     for (int i = 0; i < optionsMax; i++) {
         ios << "\t" << optionItems[i].key << "\t" ;
-        ios << optionItems[i].val << "\t" ;
+        if (optionItems[i].val)
+            ios << optionItems[i].val << "\t" ;
         ios << optionItems[i].sample << endl;
     }
     ios << endl;

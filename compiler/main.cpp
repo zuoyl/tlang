@@ -20,6 +20,7 @@ int main(int argc, const char *argv[])
         options.usage(cout);
         return 0;
     }
+    // dumpu parse tree for debuging
     options.setOutputParseTree(true);
     options.setOutputAST(true);
     options.setOutputAssembleFile(true); 

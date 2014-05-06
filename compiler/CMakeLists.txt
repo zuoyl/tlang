@@ -27,8 +27,8 @@ message("Project cmake current directory = ${CMAKE_CURRENT_SOURCE_DIR}")
 set(PROJECT_SOURCE_DIR  "${CMAKE_CURRENT_SOURCE_DIR}/../")
 set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}) 
 
-message("Project source directory = ${PROJECT_SOURCE_DIR}")
-message("Project include directory = ${PROJECT_INCLUDE_DIR}")
+message("...Project source directory = ${PROJECT_SOURCE_DIR}")
+message("...Project include directory = ${PROJECT_INCLUDE_DIR}")
 
 # project option
 if (NOT CMAKE_BUILD_TYPE)
@@ -62,6 +62,7 @@ include_directories("${PROJECT_INCLUDE_DIR}")
 add_definitions("-Wall")
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions("-DDEBUG")
+    add_definitions("-g")
 endif()
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
@@ -87,23 +88,26 @@ include_directories(
     ${XML2_INC_DIR}
     ${PROJECT_SOURCE_DIR}
     )
-IF(WIN32)
+if(WIN32)
     TARGET_LINK_LIBRARIES(${TARGET_NAME} ${XML2_LIBRARY}, src mingw32)
-ELSE(WIN32)
+else(WIN32)
     TARGET_LINK_LIBRARIES(${TARGET_NAME} ${XML2_LIBRARY})
-ENDIF(WIN32)
+endif(WIN32)
 
 message(STATUS "Generating Makefile for linux...")
 set (CMAKE_SYSTEM_NAME Linux) 
+
 # set compiler, the g++ will be used both in linux or windows
-set (CMAKE_C_COMPILER gcc)
-set (CMAKE_CXX_COMPILER g++)
-INCLUDE_DIRECTORIES(${PROJECT_SOURECE_DIR}/src /usr/include/libxml2)
-LINK_DIRECTORIES(/usr/lib/)
-#set default iinstall prefix project root directory
-IF (CMAKE_INSTALL_PREFIX STREQUAL "/usr/local")
+set(CMAKE_C_COMPILER gcc)
+set(CMAKE_CXX_COMPILER g++)
+
+include_directories(${PROJECT_SOURECE_DIR}/src /usr/include/libxml2)
+link_directories(/usr/lib/)
+
+# set default iinstall prefix project root directory
+if (CMAKE_INSTALL_PREFIX STREQUAL "/usr/local")
     set (CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}")
-ENDIF()
+endif()
 
 #display status message for important variables
 message(STATUS "-------------------------------------------------")

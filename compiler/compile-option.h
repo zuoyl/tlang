@@ -1,9 +1,5 @@
 ////
 /// compile-option.h 
-/// compiler unit to manger lexer, parser and other components
-/// to improve the compile performance, maybe use the mulitthread to compile,
-/// in future, each thread will contain a compile unit
-///
 ///  A toyable language compiler (like a simple c++)
 
 #ifndef __TL_COMPILE_OPTION_H__
