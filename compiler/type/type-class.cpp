@@ -1,5 +1,5 @@
-#include "tl-type.h"
-#include "tl-type-builtin.h"
+#include "compiler/type/type.h"
+#include "compiler/type/type-builtin.h"
 
 using namespace tlang;
 

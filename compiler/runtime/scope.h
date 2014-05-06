@@ -7,8 +7,8 @@
 #ifndef __TL_SCOPE_H__
 #define __TL_SCOPE_H__
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/type/type.h"
+#include "compiler/common.h"
+#include "compiler/type/type.h"
 
 namespace tlang {
     class Object;

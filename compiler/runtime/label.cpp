@@ -3,8 +3,8 @@
 //  A toyable language compiler (like a simple c++)
 //
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/runtime/label.h"
+#include "compiler/common.h"
+#include "compiler/runtime/label.h"
 
 using namespace tlang;
 

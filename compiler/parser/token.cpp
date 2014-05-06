@@ -4,8 +4,8 @@
 
 
 #include <iostream>
-#include "tl-token.h"
-#include "tl-common.h"
+#include "compiler/parser/token.h"
+#include "compiler/common.h"
 
 using namespace tlang;
 

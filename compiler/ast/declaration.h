@@ -6,10 +6,10 @@
 #ifndef __TL_AST_DECL_H__
 #define __TL_AST_DECL_H__ 
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/ast.h"
-#include "tlang/compiler/runtime/scope.h"
-#include "tlang/compiler/ast/vistor.h"
+#include "compiler/common.h"
+#include "compiler/ast/ast.h"
+#include "compiler/runtime/scope.h"
+#include "compiler/ast/vistor.h"
 
 namespace tlang { 
     class Location;

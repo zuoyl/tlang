@@ -6,7 +6,8 @@
 #ifndef __TL_GRAMMAR_H__
 #define __TL_GRAMMAR_H__
 
-#include "tlang/compiler/parser.h"
+#include "compiler/parser/dfa.h"
+#include "compiler/parser/token.h"
 
 namespace tlang {
 

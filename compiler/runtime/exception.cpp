@@ -3,6 +3,6 @@
 //  A toyable language compiler (like a simple c++)
 //
 
-#include "tlang/compiler/runtime/exception.h"
+#include "compiler/runtime/exception.h"
 
 using namespace tlang;

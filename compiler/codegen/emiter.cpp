@@ -2,11 +2,11 @@
 //  IREmiter.cpp
 //  A toyable language compiler (like a simple c++)
 //
-#include "tl-compile.h"
-#include "tl-compile-option.h"
-#include "tl-ir-emiter.h"
-#include "tl-label.h"
-#include "tl-value.h"
+#include "compiler/compiler.h"
+#include "compiler/compile-option.h"
+#include "compiler/codegen/emiter.h"
+#include "compiler/runtime/label.h"
+#include "compiler/runtime/value.h"
 
 using namespace tlang;
 

@@ -7,12 +7,12 @@
 #define __TL_AST_BUILDER_H__
 
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/ast/ast.h"
-#include "tlang/compiler/ast/vistor.h"
-#include "tlang/compiler/ast/declaration.h"
-#include "tlang/compiler/expression/expression.h"
-#include "tlang/compiler/statement/statement.h"
+#include "compiler/common.h"
+#include "compiler/ast/ast.h"
+#include "compiler/ast/vistor.h"
+#include "compiler/ast/declaration.h"
+#include "compiler/expression/expr.h"
+#include "compiler/statement/stmt.h"
 
 namespace tlang {
     class Node;

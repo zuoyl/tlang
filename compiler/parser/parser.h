@@ -7,10 +7,10 @@
 #ifndef __TL_PARSER_H__
 #define __TL_PARSER_H__
 
-#include "tlang/compiler/parser/common.h"
-#include "tlang/compiler/parser/grammar.h"
-#include "tlang/compiler/parser/location.h"
-#include "tlang/compiler/parser/token.h"
+#include "compiler/common.h"
+#include "compiler/parser/grammar.h"
+#include "compiler/parser/location.h"
+#include "compiler/parser/token.h"
 
 namespace tlang {
     class Node {

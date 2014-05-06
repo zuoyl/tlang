@@ -6,10 +6,10 @@
 #ifndef __TL_IR_BUILDER_H__
 #define __TL_IR_BUILDER_H__
 
-#include "tl-common.h"
-#include "tl-ast-vistor.h"
-#include "tl-ir-nodeblock.h"
-#include "tl-ir-emiter.h"
+#include "compiler/common.h"
+#include "compiler/ast/vistor.h"
+#include "compiler/codegen/nodeblock.h"
+#include "compiler/codegen/emiter.h"
 
 
 namespace tlang {

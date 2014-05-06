@@ -6,7 +6,7 @@
 #ifndef __TL_TYPE_H__
 #define __TL_TYPE_H__
 
-#include "tl-common.h"
+#include "compiler/common.h"
 
 namespace  tlang {
     class VirtualTable;

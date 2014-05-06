@@ -6,10 +6,10 @@
 #ifndef __TL_VALUE_H__
 #define __TL_VALUE_H__
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/type/type.h"
-#include "tlang/compiler/type/type-builtin.h"
-#include "tlang/compiler/codegen/emiter.h"
+#include "compiler/common.h"
+#include "compiler/type/type.h"
+#include "compiler/type/type-builtin.h"
+#include "compiler/codegen/emiter.h"
 
 namespace tlang {
     /// 'class Value

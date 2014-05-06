@@ -7,9 +7,9 @@
 #ifndef __TL_LEXER_H__
 #define __TL_LEXER_H__
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/parser/token.h"
-#include "tlang/compiler/parser/grammar.h"
+#include "compiler/common.h"
+#include "compiler/parser/token.h"
+#include "compiler/parser/grammar.h"
 
 namespace tlang {
     enum TokenType {

@@ -7,7 +7,7 @@
 #ifndef __TL_IR_NODEBLOCK_H__
 #define __TL_IR_NODEBLOCK_H__
 
-#include "tl-common.h"
+#include "compiler/common.h"
 
 namespace tlang {
     class IRNode {

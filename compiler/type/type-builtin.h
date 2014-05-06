@@ -6,7 +6,7 @@
 #ifndef __TL_TYPE_BUILTIN_H__
 #define __TL_TYPE_BUILTIN_H__
 
-#include "tl-type.h"
+#include "compiler/type/type.h"
 
 namespace tlang {
     class MethodType;

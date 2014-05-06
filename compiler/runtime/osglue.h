@@ -6,7 +6,7 @@
 #ifndef __TL_OSGLUE_H__
 #define __TL_OSGLUE_H__
 
-#include "tlang/compiler/common.h"
+#include "compiler/common.h"
 
 namespace tlang {
     namespace os {

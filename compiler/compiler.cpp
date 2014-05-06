@@ -2,15 +2,15 @@
 /// compiler.cpp 
 ///  A toyable language compiler (like a simple c++)
 
-#include "tlang/compiler/compile.h"
-#include "tlang/compiler/compile-option.h"
-#include "tlang/compiler/parser/token.h"
-#include "tlang/compiler/parser/lexer.h"
-#include "tlang/compiler/parser/parser.h"
-#include "tlang/compiler/runtime/scope.h"
-#include "tlang/compiler/ast/ast-builder.h"
-#include "tlang/compiler/type/type-builder.h"
-#include "tlang/compiler/codegen/ir-builder.h"
+#include "compiler/compiler.h"
+#include "compiler/compile-option.h"
+#include "compiler/parser/token.h"
+#include "compiler/parser/lexer.h"
+#include "compiler/parser/parser.h"
+#include "compiler/runtime/scope.h"
+#include "compiler/ast/builder.h"
+#include "compiler/type/builder.h"
+#include "compiler/codegen/builder.h"
 
 using namespace tlang;
 

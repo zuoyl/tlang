@@ -7,7 +7,7 @@
 #ifndef __TL_LABEL_H__
 #define __TL_LABEL_H__
 
-#include "tlang/compiler/common.h"
+#include "compiler/common.h"
 
 
 namespace tlang {

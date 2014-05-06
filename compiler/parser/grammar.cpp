@@ -2,8 +2,8 @@
 //  Grammar.cpp
 //  A toyable language compiler (like a simple c++)
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/parser/grammar.h"
+#include "compiler/common.h"
+#include "compiler/parser/grammar.h"
 #include <assert.h>
 #include <algorithm>
 #include <stack>

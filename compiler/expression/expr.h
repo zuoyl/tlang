@@ -6,12 +6,12 @@
 #ifndef __TL_AST_EXPR_H__
 #define __TL_AST_EXPR_H__ 
 
-#include "tl-common.h"
-#include "tl-ast.h"
-#include "tl-ast-vistor.h"
-#include "tl-value.h"
-#include "tl-label.h"
-#include "tl-type-builtin.h"
+#include "compiler/common.h"
+#include "compiler/ast/ast.h"
+#include "compiler/ast/vistor.h"
+#include "compiler/runtime/value.h"
+#include "compiler/runtime/label.h"
+#include "compiler/type/type-builtin.h"
 
 namespace tlang {
     class Value;

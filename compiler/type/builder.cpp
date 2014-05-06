@@ -1,20 +1,20 @@
 //
-//  tl-type-builder.cpp
+//  builder.cpp
 //  A toyable language compiler (like a simple c++)
 
 
-#include "tl-error.h"
-#include "tl-os.h"
-#include "tl-frame.h"
-#include "tl-ast-decl.h"
-#include "tl-ast-stmt.h"
-#include "tl-ast-expr.h"
-#include "tl-exception.h"
-#include "tl-token.h"
-#include "tl-lexer.h"
-#include "tl-parser.h"
-#include "tl-ast-builder.h"
-#include "tl-type-builder.h"
+#include "compiler/runtime/error.h"
+#include "compiler/runtime/osglue.h"
+#include "compiler/runtime/frame.h"
+#include "compiler/ast/declaration.h"
+#include "compiler/statement/stmt.h"
+#include "compiler/expression/expr.h"
+#include "compiler/runtime/exception.h"
+#include "compiler/parser/token.h"
+#include "compiler/parser/lexer.h"
+#include "compiler/parser/parser.h"
+#include "compiler/ast/builder.h"
+#include "compiler/type/builder.h"
 
 using namespace tlang;
 

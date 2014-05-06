@@ -2,7 +2,7 @@
 //  value.cpp
 //  A toyable language compiler (like a simple c++)
 //
-#include "tlang/compiler/runtime/value.h"
+#include "compiler/runtime/value.h"
 
 using namespace tlang;
 

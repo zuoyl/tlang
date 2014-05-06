@@ -8,11 +8,11 @@
 #ifndef __TL_TYPE_BUILDER_H__
 #define __TL_TYPE_BUILDER_H__
 
-#include "tl-ast.h"
-#include "tl-ast-vistor.h"
-#include "tl-scope.h"
-#include "tl-type.h"
-#include "tl-type-builtin.h"
+#include "compiler/ast/ast.h"
+#include "compiler/ast/vistor.h"
+#include "compiler/runtime/scope.h"
+#include "compiler/type/type.h"
+#include "compiler/type/type-builtin.h"
 
 namespace tlang {
     class TypeBuilder : public ASTVistor {

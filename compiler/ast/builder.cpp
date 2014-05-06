@@ -4,18 +4,18 @@
 //  @author:jenson.zuo@gmail.com 
 // 
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/ast/ast.h"
-#include "tlang/compiler/ast/builder.h"
-#include "tlang/compiler/ast/xml-generator.h"
-#include "tlang/compiler/parser/parser.h"
-#include "tlang/compiler/type/type.h"
-#include "tlang/compiler/ast/declaration.h"
-#include "tlang/compiler/statement/statement.h"
-#include "tlang/compiler/expression/expression.h"
-#include "tlang/compiler/runtime/exception.h"
-#include "tlang/compiler/compiler.h"
-#include "tlang/compiler/compile-option.h"
+#include "compiler/common.h"
+#include "compiler/ast/ast.h"
+#include "compiler/ast/builder.h"
+#include "compiler/ast/xml-generator.h"
+#include "compiler/parser/parser.h"
+#include "compiler/type/type.h"
+#include "compiler/ast/declaration.h"
+#include "compiler/statement/stmt.h"
+#include "compiler/expression/expr.h"
+#include "compiler/runtime/exception.h"
+#include "compiler/compiler.h"
+#include "compiler/compile-option.h"
 #include <algorithm>
 
 using namespace tlang;
@@ -52,7 +52,7 @@ AST* ASTBuilder::build(Node *parseTree)
     }
     // check wether output ast tree
     if (CompileOption::getInstance().isOutputAST()) {
-        ASTXml xml(m_path, m_file);
+        ASTXmlGenerator xml(m_path, m_file);
         xml.build(root);
     }
     return root;

@@ -6,10 +6,7 @@
 #ifndef __TL_FA_H__
 #define __TL_FA_H__
 
-#include "tl-common.h"
-#include <vector>
-#include <map>
-#include <iostream>
+#include "compiler/common.h"
 #include <utility>
 
 

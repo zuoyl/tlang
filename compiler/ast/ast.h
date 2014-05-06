@@ -7,8 +7,8 @@
 #define __TL_AST_H__
 
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/parser/location.h"
+#include "compiler/common.h"
+#include "compiler/parser/location.h"
 
 namespace tlang {
     class ASTVistor;

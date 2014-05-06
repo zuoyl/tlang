@@ -6,8 +6,8 @@
 #ifndef __TL_FRAME_H__
 #define __TL_FRAME_H__
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/statement/statement.h"
+#include "compiler/common.h"
+#include "compiler/statement/stmt.h"
 
 namespace tlang {
     class Value;

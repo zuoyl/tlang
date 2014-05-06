@@ -7,9 +7,9 @@
 #ifndef __TL_IR_EMITER_H__
 #define __TL_IR_EMITER_H__
 
-#include "tl-common.h"
-#include "tl-ir.h"
-#include "tl-ir-nodeblock.h"
+#include "compiler/common.h"
+#include "compiler/codegen/ir.h"
+#include "compiler/codegen/nodeblock.h"
 #include <cstdarg>
 
 

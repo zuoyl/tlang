@@ -11,7 +11,7 @@
 #ifndef __TL_COMPILER_H__
 #define __TL_COMPILER_H__
 
-#include "tlang/compiler/common.h"
+#include "compiler/common.h"
 
 namespace tlang { 
     class TokenStream;

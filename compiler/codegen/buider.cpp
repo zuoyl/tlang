@@ -3,19 +3,19 @@
 //  A toyable language compiler (like a simple c++)
 //
 
-#include "tl-ast.h"
-#include "tl-scope.h"
-#include "tl-error.h"
-#include "tl-label.h"
-#include "tl-value.h"
-#include "tl-frame.h"
-#include "tl-ast-decl.h"
-#include "tl-ast-expr.h"
-#include "tl-ast-stmt.h"
-#include "tl-ir-emiter.h"
-#include "tl-ir-builder.h"
-#include "tl-compile.h"
-#include "tl-compile-option.h"
+#include "compiler/ast/ast.h"
+#include "compiler/runtime/scope.h"
+#include "compiler/runtime/error.h"
+#include "compiler/runtime/label.h"
+#include "compiler/runtime/value.h"
+#include "compiler/runtime/frame.h"
+#include "compiler/ast/declaration.h"
+#include "compiler/expression/expr.h"
+#include "compiler/statement/stmt.h"
+#include "compiler/codegen/emiter.h"
+#include "compiler/codegen/builder.h"
+#include "compiler/compiler.h"
+#include "compiler/compile-option.h"
 
 
 using namespace tlang;

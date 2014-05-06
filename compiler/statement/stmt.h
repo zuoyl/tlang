@@ -7,12 +7,12 @@
 #ifndef __TL_AST_STMT_H__
 #define __TL_AST_STMT_H__
 
-#include "tl-ast.h"
-#include "tl-ast-expr.h"
-#include "tl-label.h"
-#include "tl-type.h"
-#include "tl-location.h"
-#include "tl-scope.h"
+#include "compiler/ast/ast.h"
+#include "compiler/expression/expr.h"
+#include "compiler/runtime/label.h"
+#include "compiler/type/type.h"
+#include "compiler/parser/location.h"
+#include "compiler/runtime/scope.h"
 
 namespace tlang {
     class ASTVistor;

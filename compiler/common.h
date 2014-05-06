@@ -30,7 +30,7 @@ void dbg(const char* fmt, ...);
 #endif
 
 
-#include "tl-error.h"
+#include "compiler/runtime/error.h"
 
 
 // xml support

@@ -2,8 +2,8 @@
 //  FA.cpp
 //  A toyable language compiler (like a simple c++)
 
-#include "tl-common.h"
-#include "tl-fa.h"
+#include "compiler/common.h"
+#include "compiler/parser/dfa.h"
 #include <algorithm>
 
 #ifdef dbg

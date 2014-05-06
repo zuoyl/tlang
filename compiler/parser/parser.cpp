@@ -3,13 +3,13 @@
 //  A toyable language compiler (like a simple c++)
 
 
-#include "tlang/compiler/common.h"
-#include "tlang/compiler/runtime/error.h"
-#include "tlang/compiler/parser/lexer.h"
-#include "tlang/compiler/parser/token.h"
-#include "tlang/compiler/parser/parser.h"
-#include "tlang/compiler/compile.h"
-#include "tlang/compiler/compile-option.h"
+#include "compiler/common.h"
+#include "compiler/runtime/error.h"
+#include "compiler/parser/lexer.h"
+#include "compiler/parser/token.h"
+#include "compiler/parser/parser.h"
+#include "compiler/compiler.h"
+#include "compiler/compile-option.h"
 
 using namespace tlang;
 

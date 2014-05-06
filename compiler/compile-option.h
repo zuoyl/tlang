@@ -9,7 +9,7 @@
 #ifndef __TL_COMPILE_OPTION_H__
 #define __TL_COMPILE_OPTION_H_
 
-#include "tlang/compiler/common.h"
+#include "compiler/common.h"
 
 namespace tlang { 
     /// 'class CompileOption

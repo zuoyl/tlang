@@ -2,10 +2,10 @@
 //  error.cpp
 //  A toyable language compiler (like a simple c++)
 
-#include "tlang/compiler/runtime/error.h"
-#include "tlang/compiler/compile.h"
-#include "tlang/compiler/parser/location.h"
-#include "tlang/compiler/ast/ast.h"
+#include "compiler/runtime/error.h"
+#include "compiler/compiler.h"
+#include "compiler/parser/location.h"
+#include "compiler/ast/ast.h"
 
 using namespace tlang;
 

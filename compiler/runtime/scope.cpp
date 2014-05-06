@@ -3,8 +3,8 @@
 //  A toyable language compiler (like a simple c++)
 
 
-#include "tlang/compiler/runtime/scope.h"
-#include "tlang/compiler/type/type.h"
+#include "compiler/runtime/scope.h"
+#include "compiler/type/type.h"
 
 using namespace tlang;
 

@@ -4,8 +4,8 @@
 //  A toyable language compiler (like a simple c++)
 //
 
-#include "tl-common.h"
-#include "tl-ast-expr.h"
+#include "compiler/common.h"
+#include "compiler/expression/expr.h"
 
 using namespace tlang;
 

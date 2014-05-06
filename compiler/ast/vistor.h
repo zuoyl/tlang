@@ -7,7 +7,7 @@
 #ifndef __TL_AST_VISTOR_H__
 #define __TL_AST_VISTOR_H__
 
-#include "tlang/compiler/common.h"
+#include "compiler/common.h"
 
 namespace tlang { 
     /// declarations

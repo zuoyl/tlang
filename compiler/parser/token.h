@@ -8,9 +8,9 @@
 #ifndef __TL_TOKEN_H__
 #define __TL_TOKEN_H__
 
-#include "tl-common.h"
-#include "tl-exception.h"
-#include "tl-location.h"
+#include "compiler/common.h"
+#include "compiler/runtime/exception.h"
+#include "compiler/parser/location.h"
 #include <string>
 #include <vector>
 

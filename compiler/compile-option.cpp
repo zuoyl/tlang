@@ -2,7 +2,7 @@
 /// tl-compile-option.cpp 
 ///  A toyable language compiler (like a simple c++)
 
-#include "tlang/compiler/compile-option.h"
+#include "compiler/compile-option.h"
 
 using namespace tlang;
 

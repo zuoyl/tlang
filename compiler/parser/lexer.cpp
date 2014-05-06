@@ -3,8 +3,8 @@
 //  A toyable language compiler (like a simple c++)
 
 
-#include "tlang/compiler/parser/lexer.h"
-#include "tlang/compiler/parser/token.h"
+#include "compiler/parser/lexer.h"
+#include "compiler/parser/token.h"
 
 using namespace tlang;
 

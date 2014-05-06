@@ -6,7 +6,7 @@
 #ifndef __TL_EXCEPTION_H__
 #define __TL_EXCEPTION_H__
 
-#include "tlang/compiler/common.h"
+#include "compiler/common.h"
 #include <stdexcept>
 
 namespace tlang {

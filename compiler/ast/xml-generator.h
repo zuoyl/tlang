@@ -6,9 +6,9 @@
 #ifndef __TL_AST_XML_GENERATOR_H__
 #define __TL_AST_XML_GENERATOR_H__
 
-#include "tlang/compiler/ast/ast.h"
-#include "tlang/compiler/ast/vistor.h"
-#include "tlang/compiler/runtime/scope.h"
+#include "compiler/ast/ast.h"
+#include "compiler/ast/vistor.h"
+#include "compiler/runtime/scope.h"
 
 
 namespace tlang {
@@ -80,7 +80,7 @@ namespace tlang {
             void accept(ASTNewExpr &expr);
             
         private:
-            ASTXml(); 
+            ASTXmlGenerator(); 
             void handleSelectorExpr(ASTPrimaryExpr &primExpr, vector<ASTSelectorExpr *> &elements);
             void walk(AST *node);
             void pushXmlNode(xmlNodePtr node);
