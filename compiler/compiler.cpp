@@ -47,7 +47,7 @@ CompileUnit::~CompileUnit()
 /// build the source file specified by compile thread
 bool CompileUnit::build()
 {
-    if (!Grammar::getInstance().build("tlang.grammar"))
+    if (!Grammar::getInstance().build(TLANG_GRAMMAR_FILE))
         return false;
 
     m_lexer->parse(m_tokenStream);

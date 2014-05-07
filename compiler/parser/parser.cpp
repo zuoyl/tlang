@@ -62,7 +62,7 @@ bool Parser::prepare()
 {
     
     // initialize the stack
-    if (!m_grammar->build("tlang.grammar"))
+    if (!m_grammar->build(TLANG_GRAMMAR_FILE))
         return false;
     m_start = m_grammar->getStartStateIndex(); 
     if (!m_grammar->isNonterminal(m_start)) {

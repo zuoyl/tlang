@@ -23,12 +23,21 @@ set(${PROJECT_NAME}_PATCH_LEVEL 0)
 set(TARGET_NAME tcc)
 
 message("Project cmake current directory = ${CMAKE_CURRENT_SOURCE_DIR}")
+
 # project source directory
-set(PROJECT_SOURCE_DIR  "${CMAKE_CURRENT_SOURCE_DIR}/../")
+set(PROJECT_SOURCE_DIR  "${CMAKE_CURRENT_SOURCE_DIR}/..")
+set(PROJECT_BINARY_DIR ${PROJECT_SOURCE_DIR}/bin)
 set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}) 
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+# set grammar file location
+set(GRAMMAR_FILE "${CMAKE_CURRENT_SOURCE_DIR}/tlang.grammar")
 
 message("...Project source directory = ${PROJECT_SOURCE_DIR}")
 message("...Project include directory = ${PROJECT_INCLUDE_DIR}")
+message("...Project binary directory = ${EXECUTABLE_OUTPUT_PATH}")
+message("...Project lib directory = ${LIBRARY_OUTPUT_PATH}")
 
 # project option
 if (NOT CMAKE_BUILD_TYPE)
@@ -65,15 +74,19 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_definitions("-g")
 endif()
 
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
+# set grammra file location
+add_definitions("-DTLANG_GRAMMAR_FILE=\"${GRAMMAR_FILE}\"")
+message("...Grammar file = ${GRAMMAR_FILE}")
+
+#set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 
 # set binary director
-set(EXECUTABLE_BINARY_DIR Build)
-set(EXECUTABLE_OUTPUT_PATH
-   ${PROJECT_BINARY_DIR}
-   CACHE PATH
-   "build and bin directory"
-   )
+#set(EXECUTABLE_BINARY_DIR Build)
+#set(EXECUTABLE_OUTPUT_PATH
+#   ${PROJECT_BINARY_DIR}
+#   CACHE PATH
+#   "build and bin directory"
+#   )
 
 # look for xml2 library
 find_library(XML2_LIBRARY
