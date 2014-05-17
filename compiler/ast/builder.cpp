@@ -143,13 +143,19 @@ AST* ASTBuilder::handleType(Node *node)
 AST* ASTBuilder::handleDeclarations(Node *node)
 {
     AssertNode("declaration");
-    if (TTEXT(node) == "importDeclaration")
-        return  handleImportDeclaration(node);
-    else if (TTEXT(node) == "typeDeclaration")
-        return handleTypeDeclaration(node);
-    else
-        Error::complain(TLOCATION(node), 
-                "unknown declaration '%s'", TTEXT(node).c_str());
+
+    for (size_t index = 0; index < TSIZE(node) - 1; index++) {
+        const std::string label = TTEXT(TCHILD(node, index));
+        if (label == "importDeclaration")
+            return  handleImportDeclaration(node->childs[index]);
+        else if (label == "typeDeclaration")
+            return handleTypeDeclaration(node->childs[index]);
+        else if (label == "packageDeclaration")
+            return handlePackageDeclaration(node->childs[index]);
+        else
+            Error::complain(TLOCATION(node), 
+                    "unknown declaration '%s'", TTEXT(node).c_str());
+    }
     return NULL; 
 }
 
@@ -172,8 +178,6 @@ AST* ASTBuilder::handleTypeDeclaration(Node *node)
         decl = (ASTDeclaration*)handleEnumDeclaration(node->childs[index]);
     else if (TTEXT(TCHILD(node, index)) == "constantDeclaration")
         decl = (ASTDeclaration*)handleConstantDeclaration(node->childs[index]);
-    else if (TTEXT(TCHILD(node, index)) == "packageDeclaration")
-        return handlePackageDeclaration(node->childs[index]);
     else
         Error::complain(node->location, 
                 "unknown declaraion '%s'", TTEXT(TCHILD(node, index)).c_str());

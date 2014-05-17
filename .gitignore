@@ -1,4 +1,5 @@
 *.a
+*.tasm
 *.elf
 *.exe
 *.def

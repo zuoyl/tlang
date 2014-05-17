@@ -15,7 +15,7 @@ class LifeRobot implements Robot
     private int price; 
 }
 
-public class MyRobot extend LifeRobot
+public class MyRobot extends LifeRobot
 {
     public void rotate(int angle);
    

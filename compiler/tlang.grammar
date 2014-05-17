@@ -1,5 +1,11 @@
 compilationUnit
-    : packageDeclaration ? importDeclaration* typeDeclaration* EOF
+    : declaration* EOF
+    ;
+
+declaration
+    : packageDeclaration 
+    | importDeclaration 
+    | typeDeclaration
     ;
 
 // packageDeclaration
@@ -13,7 +19,6 @@ importDeclaration
 typeDeclaration
     : classModifier* classDeclaration
     | classModifier* enumDeclaration
-    | packageDeclaration
     | ';' 
     ;
 
@@ -37,7 +42,7 @@ classModifier
 // classDeclaration
 //
 classDeclaration
-    : 'class' IDENTIFIER ('extend' qualifiedName)?
+    : 'class' IDENTIFIER ('extends' qualifiedName)?
       ('implements' qualifiedNameList)? 
      '{' classBodyDeclaration* '}'
     ;
@@ -89,10 +94,8 @@ mapItemPairInitializer
 
 // type definition
 type
-    : primitiveType 
-    // ('[' ']')*
-    | classType
-    //('[' ']')*
+    : primitiveType ('[' ']')*
+    | classType ('[' ']')*
     | mapType
     ;
 
@@ -188,8 +191,9 @@ block
     : '{' blockStatement* '}'
     ;
 blockStatement
-    : statement
-    | typeDeclaration
+    : typeDeclaration
+    | localVariableDeclarationStatement
+    | statement
     ;
 
 localVariableDeclarationStatement
@@ -212,9 +216,14 @@ statement
     | continueStatement
     | assertStatement
     | newStatement
-    | localVariableDeclarationStatement
     | expressionStatement
+    | labelStatement
     | ';' 
+    ;
+
+// label statement
+labelStatement
+    : IDENTIFIER ':' statement
     ;
 
 // if statement 
