@@ -1,13 +1,13 @@
 /// test source file for stmt 
 public class TestCase 
 {
-   public void construct() {
+   public def construct():void {
         self.author = "jenson.zuo@gmail.com";
    }
    
-   public void destruct();
-   public void testIfStmt() {
-        int index = 0;
+   public def destruct():void;
+   public def testIfStmt():void {
+        index:int = 0;
         index += 10;
 
         if (index > 10)
@@ -24,8 +24,8 @@ public class TestCase
         }
 
    }
-   public void testWhileStmt() {
-       int index = 0;
+   public def testWhileStmt():void {
+       index:int = 0;
        while (index < 10)
        index += 1;
        while (index > 0) {
@@ -34,36 +34,36 @@ public class TestCase
                 break;
         }
     }
-   public void testForStmt()
+   public def testForStmt():void
    {
-       int index;
-       int sum = 0; 
+       index:int;
+       sum:int = 0; 
        
        for (index = 0; index < 10; index += 1)
            sum += index;
 
-       for (int i = 0; i < 10; i += 1) {
+       for (i:int = 0; i < 10; i += 1) {
            sum += i;
        }
    }
-   public void testForEachStmt();
-   public void testDoStmt();
-   public void testNewStmt();
-   public void testReturnStmt();
-   public void testAssertStmt();
-   public void testBreakStmt();
-   public void testSwichStmt();
-   public void testTryStmt();
-   public void testCatchStmt();
-   public void testExprStmt();
-   public void testContinueStmt();
-   private string author;
+   public def testForEachStmt():void;
+   public def testDoStmt():void;
+   public def testNewStmt():void;
+   public def testReturnStmt():void;
+   public def testAssertStmt():void;
+   public def testBreakStmt():void;
+   public def testSwichStmt():void;
+   public def testTryStmt():void;
+   public def testCatchStmt():void;
+   public def testExprStmt():void;
+   public def testContinueStmt():void;
+   private author:string;
 }
 
 class Tester 
 {
-    public static void main(string[] options) {
-        TestCase m;
+    public static main(argc:int, options:string[]):int {
+        m:TestCase;
         m.testIfStmt();
         m.testWhileStmt();
         m.testForStmt();

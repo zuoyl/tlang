@@ -52,24 +52,17 @@ classBodyDeclaration
     ;
 
 memberDeclaration
-    : methodDeclaration
-    | fieldDeclaration
+    :methodDeclaration 
+    |fieldDeclaration
     ;
 
 methodDeclaration
-    :(type |'void') IDENTIFIER formalParameters
-     ('throw' qualifiedNameList)?
+    : 'def' IDENTIFIER formalParameters ':' (type | 'void') ('throw' qualifiedNameList)?
      ( methodBody | ';')
     ;
 
 fieldDeclaration
-    : type variableDeclarators ';'
-    ;
-variableDeclarators
-    : variableDeclaratorId ('=' variableInitializer)?
-    ;
-variableDeclaratorId
-    : IDENTIFIER ('[' ']')*
+    : IDENTIFIER ':' type ('=' variableInitializer)?
     ;
 
 variableInitializer
@@ -135,7 +128,7 @@ formalParameterList
     ;
 
 formalParameter
-    : variableModifier* type variableDeclaratorId
+    : variableModifier* IDENTIFIER ':' type
     ;
 
 methodBody
@@ -200,7 +193,7 @@ localVariableDeclarationStatement
     : localVariableDeclaration ';'
     ;
 localVariableDeclaration
-    : variableModifier* type variableDeclarators
+    : variableModifier* IDENTIFIER ':' type ( '=' variableInitializer)?
     ;
 
 statement

@@ -4,56 +4,49 @@ import System.Graphics;
 import System.File;
 
 package Graphics;
-public class GraphicDeviceContext
-{
-    public void construct(int handle);
-    public void destruct();
-    public int getHandle(); 
-    private int handle;
+public class GraphicDeviceContext {
+    public def construct(handle:int):void;
+    public def destruct():void;
+    public def getHandle():int; 
+    private handle:int;
 }
 
 
-public abstract class Graphic
-{
-    public void draw(GraphicDeviceContext context);
-    public void move(int x, int y);
-    public void select(int x, int y);
+public abstract class Graphic {
+    public def draw(context:GraphicDeviceContext):void;
+    public def move(x:int, y:int):void;
+    public def select(x:int, y:int):void;
 }
 
-public class Rectangle implements Graphic
-{
-    public void construct(int x, int y, int height, int width);
-    public void construc();
-    public void draw(GraphicDeviceContext context);
-    public void move(int x, int y);
-    public void select(int x, int y);
-    public int getSize(); 
+public class Rectangle implements Graphic {
+    public def construct(x:int, y:int, height:int, width:int):void;
+    public def construc():void;
+    public def draw(context:GraphicDeviceContext):void;
+    public def move(x:int, y:int):void;
+    public def select(x:int, y:int):void;
+    public def getSize():int;
     /// attribute
-    int x;
-    int y;
-    int height;
-    int width;
+    x:int;
+    y:int;
+    height:int;
+    width:int;
 }
 
-public class Triangle implements Graphic 
-{
-    public void draw(GraphicDeviceContext context);
-    public void move(int x, int y);
-    public void select(int x, int y);
+public class Triangle implements Graphic {
+    public def draw(context:GraphicDeviceContext):void;
+    public def move(x:int, y:int):void;
+    public def select(x:int, y:int):void;
 }
 
-class Application
-{
-    static void main(string options[])
-    {   
-        Graphic graphics[];
-
-        GraphicDeviceContext context;
-        Rectangle rectangle = new Rectangle();
-        Triangle  triangle = new Triangle();
+class Application {
+    static def main(options:string[]):void {   
+        graphics:Graphics;
+        context:GraphicDeviceContext;
+        rectangle:Rectangle = new Rectangle();
+        triangle:Triangle  = new Triangle();
         graphics.add(rectange);
         graphics.add(triange);
-        foreach (Graphic g in graphics)
+        foreach (g:Graphic in graphics)
             g.draw(context);
 
     }
