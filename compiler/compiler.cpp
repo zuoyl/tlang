@@ -66,9 +66,11 @@ bool CompileUnit::build()
     // build the type and scope
     m_typeBuilder->build(ast, m_typeDomain);
     if (m_typeBuilder->isBuildComplete()) {
+#if 0
         // build the ir code
         IRBlockList blocks;
         m_irBuilder->build(ast, &blocks, m_typeDomain);
+#endif
         delete ast; 
         return true;
     }

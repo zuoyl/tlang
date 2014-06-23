@@ -70,6 +70,8 @@ AST* ASTBuilder::handlePrimitiveType(Node *node)
         type = ASTTypeDecl::TBool;
     else if (typeName == "size_t")
         type = ASTTypeDecl::TInt;
+    else if (typeName == "int")
+        type = ASTTypeDecl::TInt;
     else if (typeName == "char")
         type = ASTTypeDecl::TChar; 
     else if (typeName == "byte")
@@ -144,7 +146,7 @@ AST* ASTBuilder::handleDeclarations(Node *node)
 {
     AssertNode("declaration");
 
-    for (size_t index = 0; index < TSIZE(node) - 1; index++) {
+    for (size_t index = 0; index < TSIZE(node); index++) {
         const std::string label = TTEXT(TCHILD(node, index));
         if (label == "importDeclaration")
             return  handleImportDeclaration(node->childs[index]);
@@ -438,8 +440,15 @@ AST* ASTBuilder::handleConstantDeclaration(Node *node)
 AST* ASTBuilder::handleMethodDeclaration(Node *node, const string &clsName) 
 {
     AssertNode("methodDeclaration"); 
-    size_t index = 0; 
-    // return type and method name
+    size_t index = 1; 
+
+    // method name
+    string methodName = node->childs[index++]->assic;
+    // method parameter list
+    ASTFormalParameterList *formalParameterList = 
+        (ASTFormalParameterList*)handleFormalParameters(node->childs[index++]);    
+    // method return type
+    index++;  // skip ':'
     ASTTypeDecl *retType = NULL;
     if (node->childs[index]->assic != "void")
         retType = (ASTTypeDecl*)handleType(node->childs[index]);
@@ -448,11 +457,6 @@ AST* ASTBuilder::handleMethodDeclaration(Node *node, const string &clsName)
                         node->childs[index]->assic,
                         node->location);
     
-    index++; 
-    string methodName = node->childs[index++]->assic;
-    // method parameter list
-    ASTFormalParameterList *formalParameterList = 
-        (ASTFormalParameterList*)handleFormalParameters(node->childs[index]);    
     index++; 
     // check to see wethe the exception is thrown
     vector<QualifiedName> qualifiedNameList;
@@ -487,8 +491,8 @@ AST* ASTBuilder::handleFieldDeclaration(Node *node, const string &clsName)
 {
     AssertNode("fieldDeclaration");
 
-    ASTTypeDecl *type = (ASTTypeDecl*)handleType(node->childs[0]);
-    return handleVariableDeclarators(node->childs[1], type); 
+    ASTTypeDecl *type = (ASTTypeDecl*)handleType(node->childs[1]);
+    return handleVariableDeclarators(node->childs[0], type); 
 }
 
 // handle variableDeclarators
@@ -642,16 +646,14 @@ AST* ASTBuilder::handleFormalParameter(Node *node)
             break;
         handleVariableModifier(node->childs[index], attribute, &annotation);
     }
-    // get type name and id
-    ASTTypeDecl *variableType = 
-        (ASTTypeDecl*)handleType(node->childs[index++]);
-    string variableName;
-    int scalars = 0;
-    handleVariableDeclaratorId(node->childs[index], variableName, scalars);
+    string variableName = node->childs[index++]->assic;
+    index++; // skip ':'
+    ASTTypeDecl *variableType = (ASTTypeDecl*)handleType(node->childs[index++]);
+
     ASTFormalParameter *formalParameter = 
         new  ASTFormalParameter(variableType, variableName, node->location);
     formalParameter->setAttribute(attribute);
-    formalParameter->setScalars(scalars);
+    formalParameter->setScalars(0);
     return formalParameter;
 }
 
@@ -750,7 +752,7 @@ AST* ASTBuilder::handleLocalVariableDeclarationStatement(
     AssertNode("localVariableDeclarationStatement");
 
     ASTVariable *variable = 
-        (ASTVariable*)handleLocalVariableDeclaration(node->childs[0]);
+        (ASTVariable*)handleLocalVariableDeclaration(node->childs[1]);
     ASTLocalVariableDeclarationStmt* stmt = 
         new ASTLocalVariableDeclarationStmt(variable, variable->m_expr, node->location);
 
@@ -771,9 +773,13 @@ AST* ASTBuilder::handleLocalVariableDeclaration(Node *node)
             break;
         handleVariableModifier(node->childs[index], attribute, &annotation);
     }
+    // variable name
+    std::string varName = node->childs[index++]->assic;
+    // variable type
+    index++;
     ASTTypeDecl *variableType = 
         (ASTTypeDecl*)handleType(node->childs[index++]);
-    return handleVariableDeclarators(node->childs[index], variableType);
+    return new ASTVariable(variableType, varName, node->location);
 }
 
 /// handle if statement

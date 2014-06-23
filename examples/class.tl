@@ -8,7 +8,7 @@ public class GraphicDeviceContext {
     public def construct(handle:int):void;
     public def destruct():void;
     public def getHandle():int; 
-    private handle:int;
+    private var handle:int;
 }
 
 
@@ -26,10 +26,10 @@ public class Rectangle implements Graphic {
     public def select(x:int, y:int):void;
     public def getSize():int;
     /// attribute
-    x:int;
-    y:int;
-    height:int;
-    width:int;
+    var x:int;
+    var y:int;
+    var height:int;
+    var width:int;
 }
 
 public class Triangle implements Graphic {
@@ -40,10 +40,10 @@ public class Triangle implements Graphic {
 
 class Application {
     static def main(options:string[]):void {   
-        graphics:Graphics;
-        context:GraphicDeviceContext;
+        var graphics:Graphics;
+        var context:GraphicDeviceContext;
         rectangle:Rectangle = new Rectangle();
-        triangle:Triangle  = new Triangle();
+        var triangle:Triangle  = new Triangle();
         graphics.add(rectange);
         graphics.add(triange);
         foreach (g:Graphic in graphics)

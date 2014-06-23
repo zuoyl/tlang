@@ -62,7 +62,7 @@ methodDeclaration
     ;
 
 fieldDeclaration
-    : IDENTIFIER ':' type ('=' variableInitializer)?
+    : 'var 'IDENTIFIER ':' type ('=' variableInitializer)?
     ;
 
 variableInitializer
@@ -190,7 +190,7 @@ blockStatement
     ;
 
 localVariableDeclarationStatement
-    : localVariableDeclaration ';'
+    : 'var' localVariableDeclaration ';'
     ;
 localVariableDeclaration
     : variableModifier* IDENTIFIER ':' type ( '=' variableInitializer)?
