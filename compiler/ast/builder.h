@@ -64,13 +64,11 @@ namespace tlang {
             AST* handleFormalParameter(Node *node);
             
             // field
-            AST* handleFieldDeclaration(Node *node, const string &clsName);
-            AST* handleVariableDeclarators(Node *node, ASTTypeDecl *typeDecl);
+            AST* handleVariableDeclaration(Node *node);
             AST* handleVariableInitializer(Node *node);
             void handleVariableModifier(Node *node, int &attribute,
                     ASTAnnotation** annotation);
             void handleVariableDeclaratorId(Node *node, string &variableName, int &scalars);
-            AST* handleLocalVariableDeclaration(Node *node); 
             // type 
             AST* handleType(Node *node);
             AST* handlePrimitiveType(Node *node);
@@ -85,6 +83,7 @@ namespace tlang {
             // Statement
             AST* handleBlock(Node *node);
             AST* handleStatement(Node *node, ASTBlock *block);
+            AST* handleLetStatement(Node *node, ASTBlock *block);
             AST* handleBlockStatement(Node *node, ASTBlock *block);
             AST* handleLocalVariableDeclarationStatement(Node *node, ASTBlock *block);
             AST* handleIfStatement(Node *node);

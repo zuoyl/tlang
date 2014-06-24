@@ -53,16 +53,16 @@ classBodyDeclaration
 
 memberDeclaration
     :methodDeclaration 
-    |fieldDeclaration
+    |variableDeclaration
     ;
 
 methodDeclaration
-    : 'def' IDENTIFIER formalParameters ':' (type | 'void') ('throw' qualifiedNameList)?
+    : 'def' IDENTIFIER formalParameters (':' (type | 'void'))? ('throw' qualifiedNameList)?
      ( methodBody | ';')
     ;
 
-fieldDeclaration
-    : 'var 'IDENTIFIER ':' type ('=' variableInitializer)?
+variableDeclaration
+    : 'var' IDENTIFIER (':' type)? ( '=' variableInitializer)? 
     ;
 
 variableInitializer
@@ -70,11 +70,7 @@ variableInitializer
     | arrayInitializer
     | mapInitializer
     ;
-variableModifier
-    : 'final'
-    | 'const' 
-    | annotation
-    ;
+
 arrayInitializer
     : '[' (variableInitializer ( ',' variableInitializer)* ','?)? ']'
     ;
@@ -128,7 +124,7 @@ formalParameterList
     ;
 
 formalParameter
-    : variableModifier* IDENTIFIER ':' type
+    : IDENTIFIER ':' type
     ;
 
 methodBody
@@ -185,19 +181,13 @@ block
     ;
 blockStatement
     : typeDeclaration
-    | localVariableDeclarationStatement
     | statement
     ;
 
-localVariableDeclarationStatement
-    : 'var' localVariableDeclaration ';'
-    ;
-localVariableDeclaration
-    : variableModifier* IDENTIFIER ':' type ( '=' variableInitializer)?
-    ;
-
 statement
-    : ifStatement
+    : localVariableDeclarationStatement
+    | letStatement
+    | ifStatement
     | forStatement
     | foreachStatement
     | doStatement
@@ -212,6 +202,16 @@ statement
     | expressionStatement
     | labelStatement
     | ';' 
+    ;
+
+// local variable declaration statement
+localVariableDeclarationStatement
+    : variableDeclaration ';' 
+    ;
+
+// let statement
+letStatement
+    : 'let' IDENTIFIER (':' type)? = ('=' variableInitializer)? 
     ;
 
 // label statement
@@ -232,7 +232,7 @@ forStatement
     ;
 
 forInitializer
-    : localVariableDeclaration
+    : variableDeclaration
     | expressionList
     ;
 
@@ -242,7 +242,7 @@ foreachStatement
     ;
 
 foreachVariable
-     : type IDENTIFIER
+     : IDENTIFIER (':' type)?
      ;
 
  iterableObject
@@ -309,7 +309,7 @@ catchParts
     : catchPart*
     ;
 catchPart
-    : 'catch' '('variableModifier *catchType IDENTIFIER ')' block 
+    : 'catch' '('catchType IDENTIFIER ')' block 
     ;
 catchType
     : qualifiedName ( '|' qualifiedName)*

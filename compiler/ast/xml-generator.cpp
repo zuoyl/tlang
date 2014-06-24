@@ -265,7 +265,7 @@ void ASTXmlGenerator::accept(ASTMethod &method)
     xmlNewProp(xmlNode, BAD_CAST "name", BAD_CAST method.m_name.c_str());
     val = (method.isPublic())?"true":"false";
     xmlNewProp(xmlNode, BAD_CAST "publicity", BAD_CAST val.c_str());
-    xmlNewProp(xmlNode, BAD_CAST "class", BAD_CAST method.m_class.c_str());
+    // xmlNewProp(xmlNode, BAD_CAST "class", BAD_CAST method.m_class.c_str());
    
     val = (method.isStatic())?"true":"false";
     xmlNewProp(xmlNode, BAD_CAST "static", BAD_CAST val.c_str());
