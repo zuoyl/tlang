@@ -10,6 +10,8 @@
 #include "compiler/parser/parser.h"
 #include "compiler/compiler.h"
 #include "compiler/compile-option.h"
+#include <algorithm>
+using namespace std;
 
 using namespace tlang;
 
@@ -266,7 +268,7 @@ bool Parser::pushToken(Token *token)
                             m_grammar->getNonterminalState(label);
                 if (subState) {
                     vector<int> &first = subState->first; 
-                    if (find(first.begin(), first.end(), symbol) != first.end()) {
+                    if (std::find(first.begin(), first.end(), symbol) != first.end()) {
                         dbg("Parser::found alternative nonterminal '%s'\n", 
                                 subState->name.c_str());
                         nonterminals.insert(make_pair(subState, nextState));
